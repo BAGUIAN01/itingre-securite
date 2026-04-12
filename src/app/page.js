@@ -34,6 +34,7 @@ export default function Home() {
       <Services />
       <WhyUs />
       <Launch />
+      <Team />
       <Leadership />
       <Contact />
       <Footer />
@@ -45,16 +46,16 @@ export default function Home() {
 function Nav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[color:var(--ink)]/70 backdrop-blur-md border-b border-[color:var(--gold)]/15">
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-10">
-        <Link href="#top" className="flex items-center gap-3">
-          <div className="relative h-11 w-11 overflow-hidden rounded-full ring-1 ring-[color:var(--gold)]/60">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-3 md:px-10 md:py-4">
+        <Link href="#top" className="flex items-center gap-2.5 md:gap-3">
+          <div className="relative h-9 w-9 overflow-hidden rounded-full ring-1 ring-[color:var(--gold)]/60 md:h-11 md:w-11">
             <Image src="/logo.jpeg" alt="Itingré Sécurité" fill className="object-cover" />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="font-display text-[17px] font-semibold tracking-wide text-[color:var(--ivory)]">
+            <span className="font-display text-[15px] font-semibold tracking-wide text-[color:var(--ivory)] md:text-[17px]">
               ITINGRÉ
             </span>
-            <span className="caption text-[color:var(--gold)]">Sécurité</span>
+            <span className="caption text-[10px] text-[color:var(--gold)] md:text-[11px]">Sécurité</span>
           </div>
         </Link>
 
@@ -62,7 +63,7 @@ function Nav() {
           {[
             ["À propos", "#about"],
             ["Services", "#services"],
-            ["Équipe", "#leadership"],
+            ["Équipe", "#team"],
             ["Événement", "#launch"],
             ["Contact", "#contact"],
           ].map(([label, href]) => (
@@ -78,10 +79,12 @@ function Nav() {
 
         <a
           href={`tel:${PHONE_1.replace(/\s/g, "")}`}
-          className="group hidden items-center gap-2 rounded-full border border-[color:var(--gold)]/50 px-4 py-2 text-[13px] font-medium text-[color:var(--gold)] transition-all hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)] sm:flex"
+          className="group flex items-center gap-2 rounded-full border border-[color:var(--gold)]/50 px-3 py-2 text-[12px] font-medium text-[color:var(--gold)] transition-all hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)] md:px-4 md:text-[13px]"
+          aria-label="Appeler Itingré Sécurité"
         >
           <Phone className="h-3.5 w-3.5" />
-          {PHONE_1}
+          <span className="hidden sm:inline">{PHONE_1}</span>
+          <span className="sm:hidden">Appeler</span>
         </a>
       </div>
     </header>
@@ -91,7 +94,7 @@ function Nav() {
 /* ---------------- HERO ---------------- */
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen w-full pt-28">
+    <section id="top" className="relative min-h-screen w-full pt-20 md:pt-28">
       {/* Deep navy layered background */}
       <div className="absolute inset-0 -z-10">
         <div
@@ -106,10 +109,10 @@ function Hero() {
         <div className="absolute left-0 right-0 bottom-[10%] mx-auto h-px w-[88%] max-w-[1400px] bg-gradient-to-r from-transparent via-[color:var(--gold)]/30 to-transparent drawline" style={{animationDelay:".35s"}} />
       </div>
 
-      <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 pb-24 pt-12 md:grid-cols-12 md:px-10 md:pt-20">
+      <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-5 pb-20 pt-6 sm:px-6 md:grid-cols-12 md:px-10 md:pb-24 md:pt-20">
         {/* LEFT COLUMN — meta */}
-        <aside className="md:col-span-3 md:border-r md:border-[color:var(--gold)]/15 md:pr-8">
-          <div className="fade flex flex-col gap-8" style={{animationDelay:".2s"}}>
+        <aside className="order-2 md:order-1 md:col-span-3 md:border-r md:border-[color:var(--gold)]/15 md:pr-8">
+          <div className="fade grid grid-cols-3 gap-6 border-y border-[color:var(--gold)]/15 py-6 md:flex md:flex-col md:gap-8 md:border-0 md:py-0" style={{animationDelay:".2s"}}>
             <div className="space-y-1">
               <p className="caption text-[color:var(--gold)]">Dossier</p>
               <p className="font-mono text-[11px] text-[color:var(--ivory)]/60">
@@ -118,37 +121,38 @@ function Hero() {
             </div>
             <div className="space-y-1">
               <p className="caption text-[color:var(--gold)]">Fondée</p>
-              <p className="font-display text-3xl text-[color:var(--ivory)]">MMXXVI</p>
+              <p className="font-display text-2xl text-[color:var(--ivory)] md:text-3xl">MMXXVI</p>
             </div>
             <div className="space-y-1">
               <p className="caption text-[color:var(--gold)]">Siège</p>
-              <p className="text-sm text-[color:var(--ivory)]/80">
-                Toudoubweogo<br />Ouagadougou, Burkina Faso
+              <p className="text-xs leading-snug text-[color:var(--ivory)]/80 md:text-sm">
+                Toudoubweogo<br />Ouagadougou, BF
               </p>
             </div>
           </div>
         </aside>
 
         {/* CENTER — main headline */}
-        <div className="relative md:col-span-6 md:px-4">
+        <div className="relative order-1 md:order-2 md:col-span-6 md:px-4">
           <div className="rise flex flex-col items-center text-center">
             {/* Crest */}
-            <div className="relative mb-6 h-44 w-44 md:h-56 md:w-56">
+            <div className="relative mb-5 h-32 w-32 sm:h-40 sm:w-40 md:mb-6 md:h-56 md:w-56">
               <div className="absolute inset-0 animate-pulse rounded-full bg-[color:var(--gold)]/10 blur-2xl" />
               <Image
                 src="/logo.jpeg"
                 alt="Blason Itingré Sécurité"
                 fill
                 priority
+                sizes="(max-width: 768px) 160px, 224px"
                 className="relative rounded-full object-cover ring-2 ring-[color:var(--gold)]/60 shadow-[0_0_80px_rgba(212,175,55,0.25)]"
               />
             </div>
 
-            <p className="caption mb-5 text-[color:var(--gold)]">
+            <p className="caption mb-4 text-[10px] text-[color:var(--gold)] md:mb-5 md:text-[11px]">
               — Itingré Sécurité · Est. 2026 —
             </p>
 
-            <h1 className="font-display text-[clamp(2.8rem,7vw,6.2rem)] font-light leading-[0.95] tracking-tight text-[color:var(--ivory)]">
+            <h1 className="font-display text-[clamp(2.2rem,11vw,6.2rem)] font-light leading-[0.95] tracking-tight text-[color:var(--ivory)]">
               Héritier de
               <br />
               <span className="italic gold-shimmer font-medium">l&apos;intégrité,</span>
@@ -158,16 +162,16 @@ function Hero() {
               <span className="italic">sécurité.</span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-[15px] leading-relaxed text-[color:var(--ivory)]/70">
+            <p className="mt-6 max-w-xl px-2 text-[14px] leading-relaxed text-[color:var(--ivory)]/70 md:mt-8 md:text-[15px]">
               Société burkinabè agréée en gardiennage, investigation privée et
               formation. Nous protégeons personnes, biens et intérêts avec la
               rigueur d&apos;une maison, la discrétion d&apos;une garde.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row md:mt-10">
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2 bg-[color:var(--gold)] px-6 py-3.5 text-[13px] font-semibold uppercase tracking-[0.18em] text-[color:var(--ink)] transition-all hover:bg-[color:var(--gold-bright)]"
+                className="group inline-flex w-full items-center justify-center gap-2 bg-[color:var(--gold)] px-6 py-3.5 text-[12px] font-semibold uppercase tracking-[0.18em] text-[color:var(--ink)] transition-all hover:bg-[color:var(--gold-bright)] sm:w-auto md:text-[13px]"
                 style={{ clipPath: "polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%)" }}
               >
                 Demander un devis
@@ -184,7 +188,7 @@ function Hero() {
         </div>
 
         {/* RIGHT COLUMN — services preview */}
-        <aside className="md:col-span-3 md:border-l md:border-[color:var(--gold)]/15 md:pl-8">
+        <aside className="order-3 md:col-span-3 md:border-l md:border-[color:var(--gold)]/15 md:pl-8">
           <div className="fade flex flex-col gap-6" style={{animationDelay:".4s"}}>
             <p className="caption text-[color:var(--gold)]">Trois Métiers</p>
             {[
@@ -231,11 +235,11 @@ function Marquee() {
   ];
   const row = [...words, ...words];
   return (
-    <div className="relative border-y border-[color:var(--gold)]/20 bg-[color:var(--ink-2)] py-6 overflow-hidden">
+    <div className="relative border-y border-[color:var(--gold)]/20 bg-[color:var(--ink-2)] py-4 overflow-hidden md:py-6">
       <div className="flex whitespace-nowrap marquee">
         {row.map((w, i) => (
           <span key={i} className="flex items-center">
-            <span className="font-display text-3xl italic text-[color:var(--ivory)]/90 md:text-4xl px-8">
+            <span className="font-display text-2xl italic text-[color:var(--ivory)]/90 px-5 sm:text-3xl sm:px-8 md:text-4xl">
               {w}
             </span>
             <span className="text-[color:var(--gold)]">✦</span>
@@ -249,11 +253,11 @@ function Marquee() {
 /* ---------------- ABOUT ---------------- */
 function About() {
   return (
-    <section id="about" className="relative py-28 md:py-36">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-14 px-6 md:grid-cols-12 md:px-10">
+    <section id="about" className="relative py-20 md:py-36">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-5 sm:px-6 md:grid-cols-12 md:gap-14 md:px-10">
         <div className="md:col-span-5">
-          <p className="caption mb-6 text-[color:var(--gold)]">— Chapitre 01 · La Maison</p>
-          <h2 className="font-display text-5xl font-light leading-[1] text-[color:var(--ivory)] md:text-6xl">
+          <p className="caption mb-5 text-[color:var(--gold)] md:mb-6">— Chapitre 01 · La Maison</p>
+          <h2 className="font-display text-[2.5rem] font-light leading-[1] text-[color:var(--ivory)] sm:text-5xl md:text-6xl">
             Une maison bâtie sur la <span className="italic text-[color:var(--gold)]">parole</span>{" "}
             donnée.
           </h2>
@@ -271,8 +275,8 @@ function About() {
         </div>
 
         <div className="md:col-span-7 md:pl-10">
-          <div className="space-y-6 text-[15px] leading-[1.8] text-[color:var(--ivory)]/75">
-            <p className="first-letter:font-display first-letter:text-6xl first-letter:font-medium first-letter:text-[color:var(--gold)] first-letter:float-left first-letter:mr-3 first-letter:leading-[0.85]">
+          <div className="space-y-5 text-[14px] leading-[1.75] text-[color:var(--ivory)]/75 md:space-y-6 md:text-[15px] md:leading-[1.8]">
+            <p className="first-letter:font-display first-letter:text-5xl first-letter:font-medium first-letter:text-[color:var(--gold)] first-letter:float-left first-letter:mr-3 first-letter:leading-[0.85] md:first-letter:text-6xl">
               ITINGRÉ SÉCURITÉ est une société privée spécialisée dans les activités
               de gardiennage, formation et investigations. L&apos;entreprise accompagne
               particuliers, ONG et institutions privées et publiques, nationales et
@@ -287,17 +291,17 @@ function About() {
             </p>
           </div>
 
-          <div className="mt-14 grid grid-cols-3 gap-6 border-t border-[color:var(--gold)]/20 pt-10">
+          <div className="mt-10 grid grid-cols-3 gap-4 border-t border-[color:var(--gold)]/20 pt-8 md:mt-14 md:gap-6 md:pt-10">
             {[
               { n: "100%", l: "Agents assermentés" },
               { n: "24/7", l: "Intervention" },
               { n: "03", l: "Agréments d'État" },
             ].map((s) => (
               <div key={s.l}>
-                <p className="gold-shimmer font-display text-5xl font-medium leading-none">
+                <p className="gold-shimmer font-display text-3xl font-medium leading-none sm:text-4xl md:text-5xl">
                   {s.n}
                 </p>
-                <p className="mt-3 caption text-[color:var(--ivory)]/60">{s.l}</p>
+                <p className="caption mt-2 text-[9px] text-[color:var(--ivory)]/60 md:mt-3 md:text-[11px]">{s.l}</p>
               </div>
             ))}
           </div>
@@ -339,7 +343,7 @@ function Services() {
   return (
     <section
       id="services"
-      className="relative border-y border-[color:var(--gold)]/20 bg-[color:var(--ink-2)]/60 py-28 md:py-36"
+      className="relative border-y border-[color:var(--gold)]/20 bg-[color:var(--ink-2)]/60 py-20 md:py-36"
     >
       <div
         className="absolute inset-0 -z-10 opacity-[0.07]"
@@ -349,17 +353,17 @@ function Services() {
           backgroundSize: "80px 80px",
         }}
       />
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="mb-20 flex flex-col items-end gap-4 md:flex-row md:items-end md:justify-between">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
+        <div className="mb-12 flex flex-col items-start gap-6 md:mb-20 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="caption mb-4 text-[color:var(--gold)]">— Chapitre 02 · Métiers</p>
-            <h2 className="font-display text-5xl font-light leading-[0.95] text-[color:var(--ivory)] md:text-7xl">
+            <p className="caption mb-3 text-[color:var(--gold)] md:mb-4">— Chapitre 02 · Métiers</p>
+            <h2 className="font-display text-[2.5rem] font-light leading-[0.95] text-[color:var(--ivory)] sm:text-5xl md:text-7xl">
               Trois métiers.
               <br />
               <span className="italic text-[color:var(--gold)]">Une seule parole.</span>
             </h2>
           </div>
-          <p className="max-w-sm text-[14px] leading-relaxed text-[color:var(--ivory)]/60">
+          <p className="max-w-sm text-[13px] leading-relaxed text-[color:var(--ivory)]/60 md:text-[14px]">
             Chaque mission est encadrée par nos agréments d&apos;État et conduite
             selon un protocole écrit, documenté et traçable.
           </p>
@@ -371,26 +375,26 @@ function Services() {
             return (
               <article
                 key={s.n}
-                className={`service-card group relative flex flex-col justify-between gap-10 border-b border-[color:var(--gold)]/20 p-10 md:p-12 ${
+                className={`service-card group relative flex flex-col justify-between gap-8 border-b border-[color:var(--gold)]/20 p-7 sm:p-10 md:gap-10 md:p-12 ${
                   i > 0 ? "md:border-l md:border-[color:var(--gold)]/20" : ""
                 } md:border-b-0`}
               >
                 <div>
                   <div className="flex items-start justify-between">
-                    <span className="service-numeral font-display text-7xl font-light text-[color:var(--ivory)]/25">
+                    <span className="service-numeral font-display text-6xl font-light text-[color:var(--ivory)]/25 md:text-7xl">
                       {s.n}
                     </span>
                     <Icon className="h-6 w-6 text-[color:var(--gold)]" strokeWidth={1.4} />
                   </div>
-                  <h3 className="mt-8 font-display text-4xl leading-none text-[color:var(--ivory)]">
+                  <h3 className="mt-6 font-display text-3xl leading-none text-[color:var(--ivory)] md:mt-8 md:text-4xl">
                     {s.title}
                   </h3>
                   <p className="caption mt-3 text-[color:var(--gold)]">{s.kicker}</p>
-                  <p className="mt-6 text-[14px] leading-[1.7] text-[color:var(--ivory)]/65">
+                  <p className="mt-5 text-[13.5px] leading-[1.7] text-[color:var(--ivory)]/65 md:mt-6 md:text-[14px]">
                     {s.body}
                   </p>
                 </div>
-                <ul className="space-y-2.5 border-t border-[color:var(--gold)]/15 pt-6">
+                <ul className="space-y-2.5 border-t border-[color:var(--gold)]/15 pt-5 md:pt-6">
                   {s.items.map((it) => (
                     <li key={it} className="flex items-center gap-3 text-[13px] text-[color:var(--ivory)]/75">
                       <span className="h-px w-4 bg-[color:var(--gold)]" />
@@ -416,16 +420,16 @@ function WhyUs() {
     { k: "Présence", v: "Des agents formés, visibles ou invisibles selon la mission." },
   ];
   return (
-    <section className="relative py-28 md:py-36">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-12">
+    <section className="relative py-20 md:py-36">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-4">
-            <p className="caption mb-6 text-[color:var(--gold)]">— Chapitre 03 · Credo</p>
-            <h2 className="font-display text-5xl font-light leading-[0.95] text-[color:var(--ivory)] md:text-6xl">
+            <p className="caption mb-5 text-[color:var(--gold)] md:mb-6">— Chapitre 03 · Credo</p>
+            <h2 className="font-display text-[2.5rem] font-light leading-[0.95] text-[color:var(--ivory)] sm:text-5xl md:text-6xl">
               Ce qui nous <span className="italic text-[color:var(--gold)]">tient debout.</span>
             </h2>
-            <div className="hairline mt-10" />
-            <p className="mt-10 text-[14px] leading-[1.8] text-[color:var(--ivory)]/65">
+            <div className="hairline mt-8 md:mt-10" />
+            <p className="mt-8 text-[13.5px] leading-[1.75] text-[color:var(--ivory)]/65 md:mt-10 md:text-[14px] md:leading-[1.8]">
               Quatre valeurs qui commandent chacune de nos interventions, du garde
               posté à l&apos;enquêteur de terrain.
             </p>
@@ -435,15 +439,15 @@ function WhyUs() {
               {values.map((v, i) => (
                 <div
                   key={v.k}
-                  className="group relative bg-[color:var(--ink)] p-10 transition-colors hover:bg-[color:var(--ink-3)]"
+                  className="group relative bg-[color:var(--ink)] p-7 transition-colors hover:bg-[color:var(--ink-3)] sm:p-10"
                 >
-                  <span className="absolute right-6 top-6 font-mono text-[11px] text-[color:var(--gold)]/50">
+                  <span className="absolute right-5 top-5 font-mono text-[10px] text-[color:var(--gold)]/50 md:right-6 md:top-6 md:text-[11px]">
                     0{i + 1}
                   </span>
-                  <dt className="font-display text-3xl italic text-[color:var(--gold)]">
+                  <dt className="font-display text-2xl italic text-[color:var(--gold)] md:text-3xl">
                     {v.k}
                   </dt>
-                  <dd className="mt-4 text-[14px] leading-[1.7] text-[color:var(--ivory)]/70">
+                  <dd className="mt-3 text-[13.5px] leading-[1.7] text-[color:var(--ivory)]/70 md:mt-4 md:text-[14px]">
                     {v.v}
                   </dd>
                 </div>
@@ -461,7 +465,7 @@ function Launch() {
   return (
     <section
       id="launch"
-      className="relative overflow-hidden border-y border-[color:var(--gold)]/25 bg-[color:var(--ink-2)] py-28 md:py-36"
+      className="relative overflow-hidden border-y border-[color:var(--gold)]/25 bg-[color:var(--ink-2)] py-20 md:py-36"
     >
       {/* Decorative heraldic bg */}
       <div
@@ -471,29 +475,29 @@ function Launch() {
             "radial-gradient(circle at 20% 30%, rgba(212,175,55,0.35), transparent 30%), radial-gradient(circle at 80% 70%, rgba(184,31,44,0.25), transparent 30%)",
         }}
       />
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-16 px-6 md:grid-cols-12 md:px-10">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-12 px-5 sm:px-6 md:grid-cols-12 md:gap-16 md:px-10">
         <div className="md:col-span-6">
-          <p className="caption mb-5 text-[color:var(--gold)]">— Save the Date</p>
-          <h2 className="font-display text-5xl font-light leading-[0.9] text-[color:var(--ivory)] md:text-[5.5rem]">
+          <p className="caption mb-4 text-[color:var(--gold)] md:mb-5">— Save the Date</p>
+          <h2 className="font-display text-[2.6rem] font-light leading-[0.9] text-[color:var(--ivory)] sm:text-5xl md:text-[5.5rem]">
             Cérémonie
             <br />
             <span className="italic text-[color:var(--gold)]">officielle</span>
             <br />
             de lancement.
           </h2>
-          <p className="mt-8 max-w-md text-[15px] leading-[1.7] text-[color:var(--ivory)]/70">
+          <p className="mt-6 max-w-md text-[14px] leading-[1.7] text-[color:var(--ivory)]/70 md:mt-8 md:text-[15px]">
             Nous avons l&apos;honneur de vous convier à la cérémonie officielle de
             lancement des activités d&apos;ITINGRÉ SÉCURITÉ, au sein de notre siège
             sis à Toudoubweogo.
           </p>
-          <p className="mt-6 text-[13px] italic text-[color:var(--ivory)]/60">
+          <p className="mt-5 text-[12.5px] italic text-[color:var(--ivory)]/60 md:mt-6 md:text-[13px]">
             Sous le parrainage de Monsieur Ismaël SANA, Directeur Général de
             l&apos;Université Libre du Burkina.
           </p>
         </div>
 
         <div className="md:col-span-6">
-          <div className="frame-corners relative border border-[color:var(--gold)]/40 bg-[color:var(--ink)]/70 p-10 md:p-14 backdrop-blur">
+          <div className="frame-corners relative border border-[color:var(--gold)]/40 bg-[color:var(--ink)]/70 p-7 backdrop-blur sm:p-10 md:p-14">
             <div className="flex items-start justify-between">
               <Badge className="bg-[color:var(--crimson)] text-[color:var(--ivory)] uppercase tracking-wider">
                 Invitation
@@ -501,10 +505,10 @@ function Launch() {
               <span className="font-mono text-[11px] text-[color:var(--ivory)]/50">2026</span>
             </div>
 
-            <div className="mt-10 grid grid-cols-2 gap-10 border-b border-[color:var(--gold)]/20 pb-10">
+            <div className="mt-8 grid grid-cols-2 gap-6 border-b border-[color:var(--gold)]/20 pb-8 md:mt-10 md:gap-10 md:pb-10">
               <div>
                 <p className="caption text-[color:var(--gold)]">Date</p>
-                <p className="mt-2 font-display text-4xl text-[color:var(--ivory)]">
+                <p className="mt-2 font-display text-3xl text-[color:var(--ivory)] sm:text-4xl">
                   Samedi
                   <br />
                   <span className="italic">21 février</span>
@@ -512,13 +516,13 @@ function Launch() {
               </div>
               <div>
                 <p className="caption text-[color:var(--gold)]">Heure</p>
-                <p className="mt-2 font-display text-4xl text-[color:var(--ivory)]">
+                <p className="mt-2 font-display text-3xl text-[color:var(--ivory)] sm:text-4xl">
                   <span className="italic">9 h 00</span>
                 </p>
               </div>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-5">
+            <div className="mt-7 grid grid-cols-1 gap-4 md:mt-8 md:gap-5">
               <div className="flex items-center gap-4">
                 <MapPin className="h-4 w-4 text-[color:var(--gold)]" />
                 <p className="text-sm text-[color:var(--ivory)]/80">
@@ -539,8 +543,8 @@ function Launch() {
               </div>
             </div>
 
-            <div className="mt-10 flex items-center justify-between border-t border-[color:var(--gold)]/20 pt-6">
-              <p className="font-display text-xl italic text-[color:var(--gold)]">
+            <div className="mt-8 flex items-center justify-between border-t border-[color:var(--gold)]/20 pt-5 md:mt-10 md:pt-6">
+              <p className="font-display text-base italic text-[color:var(--gold)] sm:text-lg md:text-xl">
                 Gardiennage · Investigation · Formation
               </p>
             </div>
@@ -551,23 +555,163 @@ function Launch() {
   );
 }
 
+/* ---------------- TEAM ---------------- */
+function Team() {
+  const tiles = [
+    {
+      src: "/images/equipe1.jpeg",
+      label: "La garde rapprochée",
+      caption: "Agents assermentés en tenue officielle ITINGRÉ",
+      span: "md:col-span-7 md:row-span-2",
+      aspect: "aspect-[4/3] md:aspect-auto md:h-full",
+    },
+    {
+      src: "/images/equipe2.jpeg",
+      label: "Commandement & terrain",
+      caption: "Cadres et agents · cérémonie de lancement",
+      span: "md:col-span-5",
+      aspect: "aspect-[4/3]",
+    },
+    {
+      src: "/images/equipe3.jpeg",
+      label: "Aux côtés des parrains",
+      caption: "L'équipe sous le regard des invités officiels",
+      span: "md:col-span-3",
+      aspect: "aspect-[4/5]",
+    },
+    {
+      src: "/images/equipe4.jpeg",
+      label: "En formation",
+      caption: "Rigueur, posture, discipline — chaque jour",
+      span: "md:col-span-2",
+      aspect: "aspect-[3/4]",
+    },
+  ];
+
+  return (
+    <section
+      id="team"
+      className="relative border-t border-[color:var(--gold)]/20 py-20 md:py-36"
+    >
+      {/* Subtle decorative numeral backdrop */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden opacity-[0.04]"
+      >
+        <span className="absolute -right-10 top-10 font-display text-[28rem] leading-none text-[color:var(--gold)] md:text-[40rem]">
+          IV
+        </span>
+      </div>
+
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
+        {/* Header */}
+        <div className="mb-12 grid grid-cols-1 gap-8 md:mb-16 md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-7">
+            <p className="caption mb-3 text-[color:var(--gold)] md:mb-4">
+              — Chapitre 04 · L&apos;équipe
+            </p>
+            <h2 className="font-display text-[2.5rem] font-light leading-[0.95] text-[color:var(--ivory)] sm:text-5xl md:text-7xl">
+              Des visages.
+              <br />
+              <span className="italic text-[color:var(--gold)]">Une parole.</span>
+            </h2>
+          </div>
+          <div className="md:col-span-5 md:pt-6">
+            <div className="hairline mb-6 md:mb-8" />
+            <p className="text-[14px] leading-[1.8] text-[color:var(--ivory)]/70">
+              Derrière chaque mission, une équipe d&apos;hommes et de femmes
+              formés, assermentés et engagés. Ils portent l&apos;uniforme comme on
+              porte une promesse — celle de veiller, de protéger et de rendre
+              compte.
+            </p>
+            <div className="mt-6 flex items-baseline gap-5">
+              <p className="gold-shimmer font-display text-4xl font-medium leading-none md:text-5xl">
+                +20
+              </p>
+              <p className="caption text-[color:var(--ivory)]/60">
+                agents en service<br />dès le jour 1
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Editorial photo grid */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-12 md:grid-rows-2 md:gap-5">
+          {tiles.map((t, i) => (
+            <figure
+              key={t.src}
+              className={`group relative overflow-hidden border border-[color:var(--gold)]/25 bg-[color:var(--ink-2)] ${t.span} ${t.aspect}`}
+            >
+              <Image
+                src={t.src}
+                alt={t.label}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                className="object-cover transition-all duration-[900ms] ease-out group-hover:scale-[1.04] group-hover:grayscale-0 grayscale-[0.35]"
+              />
+              {/* gradient wash */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--ink)]/95 via-[color:var(--ink)]/10 to-transparent" />
+              {/* index numeral */}
+              <span className="absolute right-4 top-4 font-mono text-[10px] tracking-widest text-[color:var(--gold)]/70 md:right-5 md:top-5">
+                · 0{i + 1} ·
+              </span>
+              {/* caption */}
+              <figcaption className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+                <p className="caption text-[10px] text-[color:var(--gold)] md:text-[11px]">
+                  {t.label}
+                </p>
+                <p className="mt-2 font-display text-lg italic leading-tight text-[color:var(--ivory)] md:text-xl">
+                  {t.caption}
+                </p>
+                <div className="mt-3 h-px w-10 origin-left scale-x-0 bg-[color:var(--gold)] transition-transform duration-500 group-hover:scale-x-100" />
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        {/* Values strip */}
+        <div className="mt-14 grid grid-cols-2 gap-px bg-[color:var(--gold)]/20 md:mt-20 md:grid-cols-4">
+          {[
+            { k: "Assermentés", v: "100%" },
+            { k: "Formés en continu", v: "24/7" },
+            { k: "Uniformes officiels", v: "MSECU" },
+            { k: "Agréments d'État", v: "III" },
+          ].map((s) => (
+            <div
+              key={s.k}
+              className="group flex flex-col justify-between bg-[color:var(--ink)] p-6 transition-colors hover:bg-[color:var(--ink-3)] sm:p-8"
+            >
+              <p className="gold-shimmer font-display text-4xl font-medium leading-none md:text-5xl">
+                {s.v}
+              </p>
+              <p className="caption mt-6 text-[10px] text-[color:var(--ivory)]/60 md:text-[11px]">
+                {s.k}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- LEADERSHIP ---------------- */
 function Leadership() {
   return (
-    <section id="leadership" className="relative py-28 md:py-36">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="mb-16 flex items-end justify-between">
+    <section id="leadership" className="relative py-20 md:py-36">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
+        <div className="mb-12 flex items-end justify-between md:mb-16">
           <div>
-            <p className="caption mb-4 text-[color:var(--gold)]">— Chapitre 04 · Parrainage</p>
-            <h2 className="font-display text-5xl font-light leading-[0.95] text-[color:var(--ivory)] md:text-6xl">
+            <p className="caption mb-3 text-[color:var(--gold)] md:mb-4">— Chapitre 05 · Parrainage</p>
+            <h2 className="font-display text-[2.5rem] font-light leading-[0.95] text-[color:var(--ivory)] sm:text-5xl md:text-6xl">
               Sous le regard du <span className="italic text-[color:var(--gold)]">parrain.</span>
             </h2>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-12">
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-12">
           <div className="md:col-span-5">
-            <div className="relative aspect-[4/5] w-full overflow-hidden border border-[color:var(--gold)]/30">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden border border-[color:var(--gold)]/30 md:max-w-none">
               <Image
                 src="/images/dg_ulb.jpeg"
                 alt="Monsieur Ismaël SANA, Directeur Général de l'Université Libre du Burkina"
@@ -588,7 +732,7 @@ function Leadership() {
           </div>
 
           <div className="md:col-span-7 md:pl-10">
-            <blockquote className="font-display text-3xl font-light italic leading-[1.3] text-[color:var(--ivory)] md:text-4xl">
+            <blockquote className="font-display text-2xl font-light italic leading-[1.3] text-[color:var(--ivory)] sm:text-3xl md:text-4xl">
               <span className="text-6xl leading-none text-[color:var(--gold)]">&ldquo;</span>
               La sécurité n&apos;est pas un luxe, c&apos;est la condition première
               du développement. ITINGRÉ SÉCURITÉ porte avec dignité cette
@@ -613,23 +757,23 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="relative border-t border-[color:var(--gold)]/25 bg-[color:var(--ink-2)]/70 py-28 md:py-36"
+      className="relative border-t border-[color:var(--gold)]/25 bg-[color:var(--ink-2)]/70 py-20 md:py-36"
     >
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-12">
+      <div className="mx-auto max-w-[1400px] px-5 sm:px-6 md:px-10">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
-            <p className="caption mb-4 text-[color:var(--gold)]">— Chapitre 05 · Contact</p>
-            <h2 className="font-display text-5xl font-light leading-[0.95] text-[color:var(--ivory)] md:text-7xl">
+            <p className="caption mb-3 text-[color:var(--gold)] md:mb-4">— Chapitre 06 · Contact</p>
+            <h2 className="font-display text-[2.6rem] font-light leading-[0.95] text-[color:var(--ivory)] sm:text-5xl md:text-7xl">
               Écrivez-nous.
               <br />
               <span className="italic text-[color:var(--gold)]">Nous veillons.</span>
             </h2>
-            <p className="mt-8 max-w-md text-[14px] leading-[1.7] text-[color:var(--ivory)]/65">
+            <p className="mt-6 max-w-md text-[13.5px] leading-[1.7] text-[color:var(--ivory)]/65 md:mt-8 md:text-[14px]">
               Une demande de devis, un appel d&apos;offre, un rendez-vous
               confidentiel ? Notre bureau vous répond sous 24 heures.
             </p>
 
-            <div className="mt-12 space-y-6">
+            <div className="mt-10 space-y-5 md:mt-12 md:space-y-6">
               <ContactLine
                 icon={Phone}
                 label="Téléphone · 24/7"
@@ -651,7 +795,7 @@ function Contact() {
           </div>
 
           <div className="md:col-span-7 md:pl-10">
-            <form className="space-y-6 border border-[color:var(--gold)]/25 bg-[color:var(--ink)]/60 p-8 md:p-12 backdrop-blur">
+            <form className="space-y-5 border border-[color:var(--gold)]/25 bg-[color:var(--ink)]/60 p-6 backdrop-blur sm:p-8 md:space-y-6 md:p-12">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <Field label="Nom complet" placeholder="Jean Dupont" />
                 <Field label="Organisation" placeholder="Nom de l'entreprise" />
@@ -715,12 +859,12 @@ function ContactLine({ icon: Icon, label, value, href }) {
   return (
     <Wrap
       href={href}
-      className="group flex items-start gap-5 border-b border-[color:var(--gold)]/15 pb-6"
+      className="group flex items-start gap-4 border-b border-[color:var(--gold)]/15 pb-5 md:gap-5 md:pb-6"
     >
       <Icon className="mt-1 h-4 w-4 flex-shrink-0 text-[color:var(--gold)]" />
-      <div className="flex-1">
+      <div className="min-w-0 flex-1">
         <p className="caption text-[color:var(--ivory)]/50">{label}</p>
-        <p className="mt-1 font-display text-xl text-[color:var(--ivory)] transition-colors group-hover:text-[color:var(--gold)]">
+        <p className="mt-1 break-words font-display text-base text-[color:var(--ivory)] transition-colors group-hover:text-[color:var(--gold)] sm:text-lg md:text-xl">
           {value}
         </p>
       </div>
@@ -735,28 +879,28 @@ function ContactLine({ icon: Icon, label, value, href }) {
 function Footer() {
   return (
     <footer className="relative border-t border-[color:var(--gold)]/25 bg-[color:var(--ink)]">
-      <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
+      <div className="mx-auto max-w-[1400px] px-5 py-12 sm:px-6 md:px-10 md:py-16">
+        <div className="grid grid-cols-2 gap-10 md:grid-cols-12 md:gap-12">
+          <div className="col-span-2 md:col-span-5">
             <div className="flex items-center gap-4">
-              <div className="relative h-16 w-16 overflow-hidden rounded-full ring-1 ring-[color:var(--gold)]/60">
+              <div className="relative h-14 w-14 overflow-hidden rounded-full ring-1 ring-[color:var(--gold)]/60 md:h-16 md:w-16">
                 <Image src="/logo.jpeg" alt="Itingré Sécurité" fill className="object-cover" />
               </div>
               <div>
-                <p className="font-display text-3xl text-[color:var(--ivory)]">
+                <p className="font-display text-2xl text-[color:var(--ivory)] md:text-3xl">
                   ITINGRÉ <span className="italic text-[color:var(--gold)]">Sécurité</span>
                 </p>
                 <p className="caption text-[color:var(--ivory)]/50">Ouagadougou · Burkina Faso</p>
               </div>
             </div>
-            <p className="mt-8 max-w-sm font-display text-xl italic leading-tight text-[color:var(--ivory)]/80">
+            <p className="mt-6 max-w-sm font-display text-lg italic leading-tight text-[color:var(--ivory)]/80 md:mt-8 md:text-xl">
               « Héritier de l&apos;intégrité,
               <br />
               garant de votre sécurité. »
             </p>
           </div>
 
-          <div className="md:col-span-3">
+          <div className="col-span-1 md:col-span-3">
             <p className="caption mb-4 text-[color:var(--gold)]">Métiers</p>
             <ul className="space-y-2 text-sm text-[color:var(--ivory)]/70">
               <li><a href="#services">Gardiennage</a></li>
@@ -766,9 +910,9 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-4">
+          <div className="col-span-1 md:col-span-4">
             <p className="caption mb-4 text-[color:var(--gold)]">Agréments d&apos;État</p>
-            <ul className="space-y-2 font-mono text-[10.5px] leading-relaxed text-[color:var(--ivory)]/55">
+            <ul className="space-y-2 font-mono text-[10px] leading-relaxed text-[color:var(--ivory)]/55 md:text-[10.5px]">
               {ARRETES.map((a) => (
                 <li key={a}>ARRÊTÉ {a}</li>
               ))}
@@ -776,9 +920,9 @@ function Footer() {
           </div>
         </div>
 
-        <Separator className="my-12 bg-[color:var(--gold)]/15" />
+        <Separator className="my-10 bg-[color:var(--gold)]/15 md:my-12" />
 
-        <div className="flex flex-col items-start justify-between gap-4 text-xs text-[color:var(--ivory)]/50 md:flex-row md:items-center">
+        <div className="flex flex-col items-start justify-between gap-3 text-[11px] text-[color:var(--ivory)]/50 md:flex-row md:items-center md:text-xs">
           <p>© {new Date().getFullYear()} Itingré Sécurité · Tous droits réservés.</p>
           <p className="font-mono">
             {PHONE_1} &nbsp;·&nbsp; {PHONE_2}
