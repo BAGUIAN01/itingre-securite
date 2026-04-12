@@ -17,6 +17,7 @@ import { Badge } from "@/components/ui/badge";
 
 const PHONE_1 = "+226 05 28 56 56";
 const PHONE_2 = "+226 51 92 01 01";
+const SITE_URL = "https://itingre-securite.bf";
 
 const ARRETES = [
   "N° 2026-0055 / MSECU / CAB / DGSI / DRSP",
@@ -24,19 +25,220 @@ const ARRETES = [
   "N° 2025-1205 / MSECU / CAB / DGSI / DRSP",
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "Organization", "SecurityService"],
+      "@id": `${SITE_URL}/#organization`,
+      name: "Itingré Sécurité",
+      legalName: "ITINGRÉ SÉCURITÉ",
+      alternateName: "Itingre Securite",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.jpeg`,
+        width: 600,
+        height: 600,
+      },
+      image: [`${SITE_URL}/logo.jpeg`, `${SITE_URL}/panneau.jpeg`],
+      description:
+        "Société burkinabè agréée, spécialisée en gardiennage, investigation privée et formation. Protection de personnes, biens et entreprises. Héritier de l'intégrité, garant de votre sécurité.",
+      slogan: "Héritier de l'intégrité, garant de votre sécurité.",
+      foundingDate: "2026",
+      areaServed: [
+        { "@type": "Country", name: "Burkina Faso" },
+        { "@type": "City", name: "Ouagadougou" },
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Toudoubweogo",
+        addressLocality: "Ouagadougou",
+        addressRegion: "Centre",
+        addressCountry: "BF",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 12.3714,
+        longitude: -1.5197,
+      },
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+22605285656",
+          contactType: "customer service",
+          areaServed: "BF",
+          availableLanguage: ["French"],
+          contactOption: "TollFree",
+        },
+        {
+          "@type": "ContactPoint",
+          telephone: "+22651920101",
+          contactType: "emergency",
+          areaServed: "BF",
+          availableLanguage: ["French"],
+        },
+      ],
+      telephone: "+22605285656",
+      email: "contact@itingre-securite.bf",
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "00:00",
+        closes: "23:59",
+      },
+      priceRange: "€€",
+      knowsAbout: [
+        "Gardiennage",
+        "Protection rapprochée",
+        "Télésurveillance",
+        "Escorte de convois",
+        "Investigation privée",
+        "Enquêtes de moralité",
+        "Filature",
+        "Intelligence économique",
+        "Formation agent de sécurité",
+        "Gestion de crise",
+      ],
+      hasCredential: ARRETES.map((a) => ({
+        "@type": "EducationalOccupationalCredential",
+        name: `Arrêté ${a}`,
+        credentialCategory: "License",
+        recognizedBy: {
+          "@type": "GovernmentOrganization",
+          name: "Ministère de la Sécurité du Burkina Faso (MSECU/DGSI/DRSP)",
+        },
+      })),
+      makesOffer: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Gardiennage",
+            description:
+              "Protection statique et mobile, surveillance de sites, rondes, télésurveillance et protection rapprochée.",
+            serviceType: "Security Service",
+            provider: { "@id": `${SITE_URL}/#organization` },
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Investigation privée",
+            description:
+              "Enquêtes discrètes sur personnes et entreprises, filature, collecte de preuves, intelligence économique.",
+            serviceType: "Investigation Service",
+            provider: { "@id": `${SITE_URL}/#organization` },
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Formation en sécurité",
+            description:
+              "Formations certifiantes pour agents de sécurité, modules de sûreté d'entreprise et gestion de crise.",
+            serviceType: "Training",
+            provider: { "@id": `${SITE_URL}/#organization` },
+          },
+        },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "Itingré Sécurité",
+      description:
+        "Gardiennage, investigation privée et formation au Burkina Faso.",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: "fr-BF",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      name: "ITINGRÉ SÉCURITÉ — Gardiennage, Investigation & Formation",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: "fr-BF",
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/panneau.jpeg`,
+      },
+    },
+    {
+      "@type": "Event",
+      "@id": `${SITE_URL}/#launch-event`,
+      name: "Cérémonie officielle de lancement d'Itingré Sécurité",
+      startDate: "2026-02-21T09:00:00+00:00",
+      endDate: "2026-02-21T13:00:00+00:00",
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      eventStatus: "https://schema.org/EventScheduled",
+      location: {
+        "@type": "Place",
+        name: "Siège Itingré Sécurité",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Toudoubweogo",
+          addressLocality: "Ouagadougou",
+          addressCountry: "BF",
+        },
+      },
+      image: [`${SITE_URL}/ouverture1.jpeg`, `${SITE_URL}/ouverture2.jpeg`],
+      description:
+        "Cérémonie officielle de lancement des activités d'Itingré Sécurité au siège à Toudoubweogo, Ouagadougou, sous le parrainage de M. Ismaël Sana, Directeur Général de l'Université Libre du Burkina.",
+      organizer: { "@id": `${SITE_URL}/#organization` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Accueil",
+          item: SITE_URL,
+        },
+      ],
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <div className="relative flex w-full flex-col overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-[color:var(--gold)] focus:px-4 focus:py-2 focus:text-[color:var(--ink)]"
+      >
+        Aller au contenu
+      </a>
       <Nav />
-      <Hero />
-      <Marquee />
-      <About />
-      <Services />
-      <WhyUs />
-      <Launch />
-      <Team />
-      <Leadership />
-      <Contact />
+      <main id="main" role="main">
+        <Hero />
+        <Marquee />
+        <About />
+        <Services />
+        <WhyUs />
+        <Launch />
+        <Team />
+        <Leadership />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
