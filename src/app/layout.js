@@ -111,14 +111,6 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/logo.jpeg", type: "image/jpeg" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: "/logo.jpeg",
-  },
   manifest: "/manifest.webmanifest",
   verification: {
     // google: "REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_TOKEN",
