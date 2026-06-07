@@ -235,3 +235,21 @@
 .service-numeral {
   transition: color .6s, transform .6s cubic-bezier(.2,.7,.2,1);
 }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee {
+    animation: none !important;
+  }
+  .gold-shimmer {
+    background-position: 50% 50% !important;
+  }
+}

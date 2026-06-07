@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(curl:*)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Read(//c/Users/bagui/OneDrive/Desktop/web project/itingre-securite/**)",
+      "Bash(npm run *)"
     ]
   }
 }

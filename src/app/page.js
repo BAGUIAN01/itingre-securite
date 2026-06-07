@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
   Shield,
   Search,
@@ -14,6 +13,7 @@ import {
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import SiteNav from "@/components/site-nav";
 
 const PHONE_1 = "+226 05 28 56 56";
 const PHONE_2 = "+226 51 92 01 01";
@@ -227,7 +227,7 @@ export default function Home() {
       >
         Aller au contenu
       </a>
-      <Nav />
+      <SiteNav />
       <main id="main" role="main">
         <Hero />
         <Marquee />
@@ -241,55 +241,6 @@ export default function Home() {
       </main>
       <Footer />
     </div>
-  );
-}
-
-/* ---------------- NAV ---------------- */
-function Nav() {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[color:var(--ink)]/70 backdrop-blur-md border-b border-[color:var(--gold)]/15">
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-3 md:px-10 md:py-4">
-        <Link href="#top" className="flex items-center gap-2.5 md:gap-3">
-          <div className="relative h-9 w-9 overflow-hidden rounded-full ring-1 ring-[color:var(--gold)]/60 md:h-11 md:w-11">
-            <Image src="/logo.jpeg" alt="Itingré Sécurité" fill className="object-cover" />
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className="font-display text-[15px] font-semibold tracking-wide text-[color:var(--ivory)] md:text-[17px]">
-              ITINGRÉ
-            </span>
-            <span className="caption text-[10px] text-[color:var(--gold)] md:text-[11px]">Sécurité</span>
-          </div>
-        </Link>
-
-        <nav className="hidden items-center gap-9 md:flex">
-          {[
-            ["À propos", "#about"],
-            ["Services", "#services"],
-            ["Équipe", "#team"],
-            ["Événement", "#launch"],
-            ["Contact", "#contact"],
-          ].map(([label, href]) => (
-            <a
-              key={href}
-              href={href}
-              className="caption text-[color:var(--ivory)]/70 transition-colors hover:text-[color:var(--gold)]"
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-
-        <a
-          href={`tel:${PHONE_1.replace(/\s/g, "")}`}
-          className="group flex items-center gap-2 rounded-full border border-[color:var(--gold)]/50 px-3 py-2 text-[12px] font-medium text-[color:var(--gold)] transition-all hover:bg-[color:var(--gold)] hover:text-[color:var(--ink)] md:px-4 md:text-[13px]"
-          aria-label="Appeler Itingré Sécurité"
-        >
-          <Phone className="h-3.5 w-3.5" />
-          <span className="hidden sm:inline">{PHONE_1}</span>
-          <span className="sm:hidden">Appeler</span>
-        </a>
-      </div>
-    </header>
   );
 }
 
@@ -389,8 +340,8 @@ function Hero() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN — services preview */}
-        <aside className="order-3 md:col-span-3 md:border-l md:border-[color:var(--gold)]/15 md:pl-8">
+        {/* RIGHT COLUMN — services preview (hidden on mobile: duplicated by Services section) */}
+        <aside className="order-3 hidden md:block md:col-span-3 md:border-l md:border-[color:var(--gold)]/15 md:pl-8">
           <div className="fade flex flex-col gap-6" style={{animationDelay:".4s"}}>
             <p className="caption text-[color:var(--gold)]">Trois Métiers</p>
             {[
@@ -1112,7 +1063,7 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-1 md:col-span-4">
+          <div className="col-span-2 md:col-span-4">
             <p className="caption mb-4 text-[color:var(--gold)]">Agréments d&apos;État</p>
             <ul className="space-y-2 font-mono text-[10px] leading-relaxed text-[color:var(--ivory)]/55 md:text-[10.5px]">
               {ARRETES.map((a) => (
