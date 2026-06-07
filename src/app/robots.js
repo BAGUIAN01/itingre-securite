@@ -1,4 +1,4 @@
-const SITE_URL = "https://itingre-securite.bf";
+const SITE_URL = "https://itingre-securite.com";
 
 export default function robots() {
   return {

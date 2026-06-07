@@ -17,7 +17,7 @@ import { Badge } from "@/components/ui/badge";
 
 const PHONE_1 = "+226 05 28 56 56";
 const PHONE_2 = "+226 51 92 01 01";
-const SITE_URL = "https://itingre-securite.bf";
+const SITE_URL = "https://itingre-securite.com";
 
 const ARRETES = [
   "N° 2026-0055 / MSECU / CAB / DGSI / DRSP",
@@ -80,7 +80,7 @@ const jsonLd = {
         },
       ],
       telephone: "+22605285656",
-      email: "contact@itingre-securite.bf",
+      email: "itingresecurite@gmail.com",
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: [
@@ -985,8 +985,8 @@ function Contact() {
               <ContactLine
                 icon={Mail}
                 label="E-mail"
-                value="contact@itingre-securite.bf"
-                href="mailto:contact@itingre-securite.bf"
+                value="itingresecurite@gmail.com"
+                href="mailto:itingresecurite@gmail.com"
               />
               <ContactLine
                 icon={MapPin}

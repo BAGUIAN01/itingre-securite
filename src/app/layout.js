@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://itingre-securite.bf";
+const SITE_URL = "https://itingre-securite.com";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
