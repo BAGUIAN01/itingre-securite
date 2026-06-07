@@ -306,11 +306,11 @@ function Hero() {
             </p>
 
             <h1 className="font-display text-[clamp(2.2rem,11vw,6.2rem)] font-light leading-[0.95] tracking-tight text-[color:var(--ivory)]">
-              Héritier de
+              Héritiers de
               <br />
               <span className="italic gold-shimmer font-medium">l&apos;intégrité,</span>
               <br />
-              garant de votre
+              garants de votre
               <br />
               <span className="italic">sécurité.</span>
             </h1>
